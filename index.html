@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Library Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📚 Team Library Management</h1>
+      <p>Demo project — GitHub collaborative workflow</p>
+    </header>
+
+    <section class="form-card">
+      <h2>Thêm sách</h2>
+      <div class="form-grid">
+        <input id="titleInput" placeholder="Tên sách">
+        <input id="authorInput" placeholder="Tác giả">
+        <button id="addBtn">Thêm sách</button>
+      </div>
+    </section>
+
+    <section class="toolbar">
+      <input id="searchInput" placeholder="🔎 Tìm kiếm theo tên sách hoặc tác giả">
+      <select id="statusFilter">
+        <option value="all">Tất cả trạng thái</option>
+        <option value="available">Có sẵn</option>
+        <option value="borrowed">Đang mượn</option>
+      </select>
+    </section>
+
+    <section class="table-card">
+      <table>
+        <thead>
+          <tr><th>ID</th><th>Tên sách</th><th>Tác giả</th><th>Trạng thái</th><th>Thao tác</th></tr>
+        </thead>
+        <tbody id="bookTable"></tbody>
+      </table>
+      <p id="emptyMessage">Chưa có sách.</p>
+    </section>
+
+    <footer>
+      <span id="bookCount">0 cuốn sách</span>
+      <span>GitHub Demo: 1 máy tính / 1 tài khoản / 5 vai trò</span>
+    </footer>
+  </div>
+  <script src="database.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

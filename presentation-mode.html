@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>GitHub Team Workflow - Presentation Mode</title>
+<style>
+body{margin:0;background:#0d1117;color:#fff;font-family:Arial}.wrap{max-width:1000px;margin:40px auto;padding:30px}
+.card{background:#161b22;border:1px solid #30363d;border-radius:16px;padding:30px;min-height:430px}
+.tag{display:inline-block;background:#238636;padding:7px 12px;border-radius:20px}
+h1{font-size:38px}.member{font-size:28px;margin-top:30px}.muted{color:#8b949e}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.box{border:1px solid #30363d;padding:18px;border-radius:10px}
+button{padding:12px 18px;margin:20px 8px 0 0;border:0;border-radius:8px;cursor:pointer}
+pre{background:#010409;padding:18px;border-radius:8px;overflow:auto}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="tag">🎤 PRESENTATION MODE</span>
+  <div class="card">
+    <div id="content"></div>
+  </div>
+  <button onclick="prev()">← BACK</button>
+  <button onclick="next()">▶ NEXT</button>
+  <button onclick="restart()">⟳ RESTART</button>
+</div>
+<script>
+const steps=[
+{title:"GITHUB TEAM WORKFLOW",member:"Hoàng Ngọc Hiếu",role:"Team Leader",task:"Tạo Repository, quản lý main, review và merge.",branch:"main",action:"Create Repository → team-library-management",meaning:"Repository là nơi tập trung mã nguồn và lịch sử của project."},
+{title:"INITIAL PROJECT",member:"Hoàng Ngọc Hiếu",role:"Team Leader",task:"Tạo cấu trúc project và commit đầu tiên.",branch:"main",action:"Initial project",meaning:"Commit ghi lại một trạng thái thay đổi của project."},
+{title:"BOOK MANAGEMENT",member:"Huỳnh Việt Quốc",role:"Backend Developer",task:"Quản lý sách.",branch:"feature/book-management",action:"Branch → Commit → Push → Pull Request",meaning:"Branch tách phần phát triển của một chức năng khỏi main."},
+{title:"PULL REQUEST",member:"Huỳnh Việt Quốc",role:"Developer",task:"Đề xuất đưa thay đổi vào main.",branch:"feature/book-management → main",action:"Open PR → Review simulation → Merge",meaning:"PR là nơi đề xuất, thảo luận, review và sau đó merge thay đổi."},
+{title:"USER INTERFACE",member:"Bùi Trung Trực",role:"Frontend Developer",task:"Thiết kế giao diện.",branch:"feature/ui",action:"Commit → Push → Pull Request → Merge",meaning:"Mỗi thành viên có thể phát triển một phần độc lập bằng branch."},
+{title:"DATABASE",member:"Phạm Việt Hoàn",role:"Database Developer",task:"Thiết kế cấu trúc dữ liệu.",branch:"feature/database",action:"database.js → Commit → Push → Pull Request → Merge",meaning:"Cấu trúc dữ liệu được phát triển độc lập trước khi nhập vào main."},
+{title:"TESTING",member:"Trần Mai Trung Hiếu",role:"Tester",task:"Kiểm thử và ghi nhận lỗi.",branch:"feature/testing",action:"Testing checklist → Commit → Push → Pull Request → Merge",meaning:"Tester kiểm tra chức năng và ghi nhận vấn đề bằng Issue."},
+{title:"ISSUE",member:"Trần Mai Trung Hiếu",role:"Tester",task:"Ghi nhận lỗi tìm kiếm.",branch:"Issue #1",action:"Create Issue → bug → assign",meaning:"Issue dùng để theo dõi bug, task hoặc công việc cần xử lý."},
+{title:"BUG FIX",member:"Huỳnh Việt Quốc",role:"Developer",task:"Sửa lỗi tìm kiếm.",branch:"feature/book-management",action:"Fix #1 → Commit → Close Issue",meaning:"Commit sửa lỗi có thể liên kết với Issue để theo dõi lịch sử."},
+{title:"PROJECT COMPLETED",member:"5 roles on ONE computer",role:"Presentation",task:"Tổng kết quy trình GitHub.",branch:"main",action:"Repository ✓ Branch ✓ Commit ✓ PR ✓ Review simulation ✓ Merge ✓ Issue ✓ Fix",meaning:"Một quy trình GitHub có thể được trình bày trên một laptop; danh tính thành viên chỉ được mô phỏng trong Presentation Mode."}
+];
+let i=0;
+function render(){const s=steps[i];document.getElementById("content").innerHTML=
+`<div class="muted">STEP ${i+1} / ${steps.length}</div><h1>${s.title}</h1>
+<div class="grid"><div class="box"><b>Current Member</b><div class="member">${s.member}</div><p class="muted">${s.role}</p></div>
+<div class="box"><b>Branch / Object</b><p>${s.branch}</p><b>Nhiệm vụ</b><p>${s.task}</p></div></div>
+<h3>THAO TÁC</h3><pre>${s.action}</pre><h3>Ý NGHĨA</h3><p>${s.meaning}</p>`}
+function next(){if(i<steps.length-1)i++;render()}function prev(){if(i>0)i--;render()}function restart(){i=0;render()}render();
+</script>
+</body></html>
