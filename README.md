@@ -15,3 +15,4 @@ Repository → Branch → Commit → Push → Pull Request → Review simulation
 
 > Presentation note: This demo uses one computer and one GitHub account.
 > The five members are simulated as presentation roles; GitHub identity is not faked.
+- Feature: Book Management added by Quoc
